@@ -12,9 +12,9 @@ loans(<u>loan_id</u>, member_id, book_id, loan_date, return_date)
 a) For each pair of tables below, state the type of relationship  
 (one-to-one, one-to-many, or many-to-many) and briefly explain your reasoning.
 
-i. Members and loans [2]  
-ii. Books and loans [2]  
-iii. Members and books [2]  
+i. Members and loans [2] - one to many, a member can have many many loans, however these loans all relate to just one member.
+ii. Books and loans [2]  - one to many, a book can have many previous loans in its history and a loan can only relate to one book
+iii. Members and books [2]  - many-to-many, many books can be borrowed by many members and books can be borrowed by different members
 
 ---
 
