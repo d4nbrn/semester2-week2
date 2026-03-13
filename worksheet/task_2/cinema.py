@@ -112,9 +112,15 @@ def top_customers_by_spend(conn, limit):
     """
 
     conn.cursor()
-    query = """SELECT customers.customer_name, tickets.price * SUM(tickets.ticket_id)
-    FROM customers INNER JOIN tickets ON customers.customer_id = tickets.customer_id
-    GROUP BY customers.customer_name, tickets.tickets.price
+    query = """SELECT customers.customer_name, SUM(tickets.ticket_id)
+    FROM customers 
+    INNER JOIN tickets ON customers.customer_id = tickets.customer_id
+    GROUP BY customers.customer_id, customer_name
+    ORDER BY SUM(tickets.price) DESC
+    LIMIT ?""" 
 
+    cursor.execute(query,(limit,))
+    tuples = cursor.fetchall()
+    return tuples
 
     pass
