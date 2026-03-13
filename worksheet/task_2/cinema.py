@@ -111,7 +111,7 @@ def top_customers_by_spend(conn, limit):
     Results should be ordered by total amount spent, from highest to lowest, and limited to a specified number of rows (passed in by the argument `limit`)
     """
 
-    conn.cursor()
+    cursor = conn.cursor()
     query = """SELECT customers.customer_name, SUM(tickets.ticket_id)
     FROM customers 
     INNER JOIN tickets ON customers.customer_id = tickets.customer_id
